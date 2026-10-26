@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#edf8f4">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Little Stars">
+  <title>Little Stars</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="game-header" id="gameHeader" hidden>
+      <button class="icon-button" id="homeButton" type="button" aria-label="Go home" title="Home">⌂</button>
+      <div class="mini-brand"><span aria-hidden="true">★</span> Little Stars</div>
+      <div class="header-actions">
+        <button class="icon-button" id="soundButton" type="button" aria-label="Mute sounds" title="Mute sounds">🔊</button>
+        <div class="score-pill">Score <strong id="score">0</strong></div>
+      </div>
+    </header>
+
+    <section class="screen start-screen cover-screen" id="startScreen">
+      <div class="cover-sparkles" aria-hidden="true">
+        <span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">★</span>
+        <span class="sparkle s4">✦</span><span class="sparkle s5">✨</span><span class="sparkle s6">★</span>
+        <span class="heart h1">♥</span><span class="heart h2">♥</span><span class="heart h3">♥</span>
+      </div>
+
+      <div class="learning-float" aria-hidden="true">
+        <span class="float-item letter-a">A</span>
+        <span class="float-item letter-arabic">ب</span>
+        <span class="float-item number">3</span>
+        <span class="float-item fruit">🍓</span>
+        <span class="float-item shape-circle">●</span>
+        <span class="float-item shape-star">★</span>
+        <span class="float-item banana">🍌</span>
+      </div>
+
+      <div class="sun-character" aria-hidden="true">
+        <span class="sun-rays"></span>
+        <div class="sun-face"><span class="sun-eye left"></span><span class="sun-eye right"></span><span class="sun-smile"></span><span class="sun-cheek left"></span><span class="sun-cheek right"></span></div>
+      </div>
+
+      <div class="cover-content">
+        <p class="cover-kicker"><span>✦</span> Welcome, little learner! <span>✦</span></p>
+        <h1 class="cover-title" aria-label="Little Stars">
+          <span class="title-line title-purple">Little</span>
+          <span class="title-line title-stars">Stars</span>
+        </h1>
+        <p class="cover-subtitle">Learn, Play <span>&amp;</span> Shine!</p>
+        <button class="cover-play-button" id="startButton" type="button">
+          <span class="play-star" aria-hidden="true">★</span>
+          <span>Let's Play!</span>
+          <span class="play-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="character teddy-character" aria-hidden="true">
+        <div class="teddy-ear teddy-ear-left"></div><div class="teddy-ear teddy-ear-right"></div>
+        <div class="teddy-body"><span class="teddy-eye left"></span><span class="teddy-eye right"></span><span class="teddy-cheek left"></span><span class="teddy-cheek right"></span><span class="teddy-nose"></span><span class="teddy-smile"></span></div>
+      </div>
+
+      <div class="character bunny-character" aria-hidden="true">
+        <div class="bunny-ear bunny-ear-left"></div><div class="bunny-ear bunny-ear-right"></div>
+        <div class="bunny-body"><span class="bunny-eye left"></span><span class="bunny-eye right"></span><span class="bunny-cheek left"></span><span class="bunny-cheek right"></span><span class="bunny-nose"></span><span class="bunny-smile"></span></div>
+      </div>
+
+      <div class="cover-cloud cloud-left" aria-hidden="true"></div>
+      <div class="cover-cloud cloud-right" aria-hidden="true"></div>
+      <div class="cover-rainbow" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+
+    <section class="screen category-screen" id="categoryScreen" hidden>
+      <div class="screen-heading">
+        <p class="eyebrow">Pick a lesson</p>
+        <h2>What will we learn?</h2>
+      </div>
+      <div class="category-grid" id="categoryGrid"></div>
+    </section>
+
+    <section class="screen question-screen" id="questionScreen" hidden aria-live="polite">
+      <div class="lesson-topline">
+        <button class="text-button" id="backButton" type="button">← Categories</button>
+        <div class="round-pill">Question <strong><span id="round">1</span>/10</strong></div>
+      </div>
+      <div class="question-card">
+        <p class="category-label" id="categoryLabel">Colors</p>
+        <h2 id="questionPrompt">Find the color</h2>
+        <div class="question-visual" id="questionVisual" aria-label="Question image"></div>
+        <div class="answer-grid" id="answerGrid" aria-label="Answer choices"></div>
+        <div class="feedback" id="feedback" aria-live="assertive"></div>
+        <button class="primary-button next-button" id="nextButton" type="button" hidden>Next Question <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="screen end-screen" id="endScreen" hidden>
+      <div class="end-stars" aria-hidden="true">⭐ ✨ 🌟</div>
+      <div class="finish-icon" aria-hidden="true">🏆</div>
+      <p class="eyebrow">Amazing work!</p>
+      <h2>You found <strong><span id="finalScore">0</span>/10</strong> stars!</h2>
+      <p class="end-message" id="endMessage">You did a wonderful job!</p>
+      <div class="end-actions">
+        <button class="primary-button" id="playAgainButton" type="button">Play Again <span aria-hidden="true">↻</span></button>
+        <button class="secondary-button" id="endHomeButton" type="button">Home</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="feedback-pop" id="feedbackPop" hidden aria-live="assertive">
+    <div class="feedback-sticker" id="feedbackSticker" aria-hidden="true"></div>
+    <div class="feedback-message" id="feedbackMessage"></div>
+  </div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
