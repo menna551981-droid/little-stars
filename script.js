@@ -280,3 +280,22 @@ if ("serviceWorker" in navigator) {
     });
   });
 }
+
+/* Little Stars - clearer answer buttons */
+.answer-button,
+.answer-btn,
+#answerGrid button {
+  color: #25304a !important;
+  -webkit-text-fill-color: #25304a !important;
+  font-weight: 700;
+  opacity: 1;
+}
+
+#answerGrid button {
+  text-shadow: none;
+}
+
+#answerGrid button:focus-visible {
+  outline: 3px solid #25304a;
+  outline-offset: 3px;
+}
