@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#edf8f4">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffcf5c">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -18,107 +18,106 @@
 <body>
   <main class="app-shell">
     <header class="game-header" id="gameHeader" hidden>
-      <button class="icon-button" id="homeButton" type="button" aria-label="Go home" title="Home">⌂</button>
-      <div class="mini-brand"><span aria-hidden="true">★</span> Little Stars</div>
+      <button class="icon-button" id="homeButton" type="button" aria-label="العودة للرئيسية">⌂</button>
+      <div class="mini-brand"><span>★</span> Little Stars</div>
       <div class="header-actions">
-        <button class="icon-button" id="soundButton" type="button" aria-label="Mute sounds" title="Mute sounds">🔊</button>
-        <div class="score-pill">Score <strong id="score">0</strong></div>
+        <button class="icon-button" id="languageButton" type="button" aria-label="تغيير اللغة">🇪🇬</button>
+        <button class="icon-button" id="soundButton" type="button" aria-label="كتم الأصوات">🔊</button>
+        <div class="score-pill"><span id="scoreLabel">Score</span> <strong id="score">0</strong></div>
       </div>
     </header>
 
-    <section class="screen start-screen cover-screen" id="startScreen">
-      <div class="cover-sparkles" aria-hidden="true">
-        <span class="sparkle s1">✦</span><span class="sparkle s2">✦</span><span class="sparkle s3">★</span>
-        <span class="sparkle s4">✦</span><span class="sparkle s5">✨</span><span class="sparkle s6">★</span>
-        <span class="heart h1">♥</span><span class="heart h2">♥</span><span class="heart h3">♥</span>
+    <section class="screen language-screen" id="languageScreen">
+      <div class="language-card">
+        <div class="little-mascot" aria-hidden="true">🌟</div>
+        <p class="welcome-kicker" id="languageKicker">Choose your language</p>
+        <h1 id="languageTitle">Little Stars</h1>
+        <p class="language-subtitle" id="languageSubtitle">Learn flags from around the world</p>
+        <div class="language-options">
+          <button class="language-button" data-language="ar"><span>🇪🇬</span><strong>العربية</strong></button>
+          <button class="language-button" data-language="en"><span>🇬🇧</span><strong>English</strong></button>
+        </div>
       </div>
-
-      <div class="learning-float" aria-hidden="true">
-        <span class="float-item letter-a">A</span>
-        <span class="float-item letter-arabic">ب</span>
-        <span class="float-item number">3</span>
-        <span class="float-item fruit">🍓</span>
-        <span class="float-item shape-circle">●</span>
-        <span class="float-item shape-star">★</span>
-        <span class="float-item banana">🍌</span>
-      </div>
-
-      <div class="sun-character" aria-hidden="true">
-        <span class="sun-rays"></span>
-        <div class="sun-face"><span class="sun-eye left"></span><span class="sun-eye right"></span><span class="sun-smile"></span><span class="sun-cheek left"></span><span class="sun-cheek right"></span></div>
-      </div>
-
-      <div class="cover-content">
-        <p class="cover-kicker"><span>✦</span> Welcome, little learner! <span>✦</span></p>
-        <h1 class="cover-title" aria-label="Little Stars">
-          <span class="title-line title-purple">Little</span>
-          <span class="title-line title-stars">Stars</span>
-        </h1>
-        <p class="cover-subtitle">Learn, Play <span>&amp;</span> Shine!</p>
-        <button class="cover-play-button" id="startButton" type="button">
-          <span class="play-star" aria-hidden="true">★</span>
-          <span>Let's Play!</span>
-          <span class="play-arrow" aria-hidden="true">→</span>
-        </button>
-      </div>
-
-      <div class="character teddy-character" aria-hidden="true">
-        <div class="teddy-ear teddy-ear-left"></div><div class="teddy-ear teddy-ear-right"></div>
-        <div class="teddy-body"><span class="teddy-eye left"></span><span class="teddy-eye right"></span><span class="teddy-cheek left"></span><span class="teddy-cheek right"></span><span class="teddy-nose"></span><span class="teddy-smile"></span></div>
-      </div>
-
-      <div class="character bunny-character" aria-hidden="true">
-        <div class="bunny-ear bunny-ear-left"></div><div class="bunny-ear bunny-ear-right"></div>
-        <div class="bunny-body"><span class="bunny-eye left"></span><span class="bunny-eye right"></span><span class="bunny-cheek left"></span><span class="bunny-cheek right"></span><span class="bunny-nose"></span><span class="bunny-smile"></span></div>
-      </div>
-
-      <div class="cover-cloud cloud-left" aria-hidden="true"></div>
-      <div class="cover-cloud cloud-right" aria-hidden="true"></div>
-      <div class="cover-rainbow" aria-hidden="true"><span></span><span></span><span></span></div>
     </section>
 
-    <section class="screen category-screen" id="categoryScreen" hidden>
-      <div class="screen-heading">
-        <p class="eyebrow">Pick a lesson</p>
-        <h2>What will we learn?</h2>
+    <section class="screen start-screen cover-screen" id="startScreen" hidden>
+      <div class="cover-decorations" aria-hidden="true">
+        <span class="cover-rainbow">🌈</span><span class="cover-cloud">☁️</span><span class="cover-sun">🌞</span>
+        <span class="cover-animal cover-bunny">🐰</span><span class="cover-animal cover-bear">🐻</span>
+        <span class="cover-balloon cover-balloon-one">🎈</span><span class="cover-balloon cover-balloon-two">🎈</span>
+        <span class="cover-shape cover-triangle">🔺</span><span class="cover-shape cover-circle">🟣</span>
+        <span class="cover-sparkle cover-sparkle-one">⭐</span><span class="cover-sparkle cover-sparkle-two">✨</span>
+        <span class="cover-sparkle cover-sparkle-three">💛</span>
       </div>
-      <div class="category-grid" id="categoryGrid"></div>
+      <div class="cover-content">
+        <div class="cover-star" aria-hidden="true">⭐</div>
+        <p class="cover-kicker" id="welcomeKicker">Welcome, little star!</p>
+        <h1 id="coverTitle">Little Stars</h1>
+        <p class="cover-subtitle" id="coverSubtitle">Explore countries and flags 🌍</p>
+        <button class="cover-play-button" id="playButton" type="button"><span>▶</span><strong id="playLabel">Play Now</strong></button>
+        <button class="cover-greeting-button" id="greetingButton" type="button" aria-label="Hear the greeting again">🔊 <span id="greetingButtonLabel">Hear “Let's play!” again</span></button>
+      </div>
+      <div class="cover-utilities">
+        <button class="cover-small-button language-switch" id="coverLanguageButton" type="button">🌐 English</button>
+        <button class="cover-small-button settings-button" id="coverSettingsButton" type="button">⚙ <span id="settingsLabel">Settings</span></button>
+      </div>
+    </section>
+
+    <section class="screen modes-screen" id="modesScreen" hidden>
+      <div class="screen-heading"><p class="eyebrow" id="modeKicker">Choose a category</p><button class="text-button category-back" id="categoryBackButton" type="button" hidden>← <span id="categoryBackLabel">Categories</span></button><h2 id="modeTitle">Choose a category</h2><p class="progress-summary" id="progressSummary"></p></div>
+      <div class="mode-grid" id="modeGrid"></div>
+      <button class="back-button-wide explore-shortcut" id="exploreButton" type="button">🌍 <span id="exploreButtonLabel">Explore flags</span></button>
+      <button class="back-button-wide" id="modesHomeButton" type="button">⌂ <span id="modesHomeLabel">الرئيسية</span></button>
     </section>
 
     <section class="screen question-screen" id="questionScreen" hidden aria-live="polite">
-      <div class="lesson-topline">
-        <button class="text-button" id="backButton" type="button">← Categories</button>
-        <div class="round-pill">Question <strong><span id="round">1</span>/10</strong></div>
+      <div class="question-topline">
+        <button class="text-button" id="backButton" type="button">←</button>
+        <div class="level-progress"><span id="levelLabel">Level</span> <strong><span id="levelNumber">1</span>/5</strong></div>
+        <div class="round-pill"><span id="roundLabel">Question</span> <strong><span id="round">1</span>/10</strong></div>
       </div>
+      <div class="progress-track"><i id="progressBar"></i></div>
       <div class="question-card">
-        <p class="category-label" id="categoryLabel">Colors</p>
-        <h2 id="questionPrompt">Find the color</h2>
-        <div class="question-visual" id="questionVisual" aria-label="Question image"></div>
-        <div class="answer-grid" id="answerGrid" aria-label="Answer choices"></div>
+        <p class="category-label" id="categoryLabel">علم الدولة</p>
+        <h2 id="questionPrompt">اختر اسم الدولة</h2>
+        <div class="question-visual" id="questionVisual"></div>
+        <div class="answer-grid" id="answerGrid"></div>
+        <div class="game-stats" id="gameStats"><span id="streakStat"></span><span id="accuracyStat"></span><span id="timerStat" hidden></span></div>
         <div class="feedback" id="feedback" aria-live="assertive"></div>
-        <button class="primary-button next-button" id="nextButton" type="button" hidden>Next Question <span aria-hidden="true">→</span></button>
+      </div>
+    </section>
+
+    <section class="screen explore-screen" id="exploreScreen" hidden>
+      <div class="explore-header"><button class="back-button-wide compact" id="exploreBackButton" type="button">←</button><div><p class="eyebrow" id="exploreKicker">استكشف العالم</p><h2 id="exploreTitle">دليل الأعلام</h2></div></div>
+      <div class="explore-grid" id="exploreGrid"></div>
+    </section>
+
+    <section class="screen settings-screen" id="settingsScreen" hidden>
+      <div class="settings-panel">
+        <h2 id="settingsTitle">Settings</h2>
+        <label class="setting-row"><span id="soundSettingLabel">Sound effects</span><input type="checkbox" id="settingsSound" checked><i></i></label>
+        <label class="setting-row"><span id="languageSettingLabel">Language</span><button type="button" id="settingsLanguageButton">🌐 English</button></label>
+        <label class="setting-row"><span id="musicSettingLabel">Background music</span><input type="checkbox" id="settingsMusic"><i></i></label>
+        <label class="setting-row" hidden><span id="timerSettingLabel">Race timer</span><input type="checkbox" id="settingsTimer"><i></i></label>
+        <button class="back-button-wide" id="settingsHomeButton" type="button">⌂ <span id="settingsHomeLabel">Home</span></button>
       </div>
     </section>
 
     <section class="screen end-screen" id="endScreen" hidden>
-      <div class="end-stars" aria-hidden="true">⭐ ✨ 🌟</div>
+      <div class="end-stars" id="resultStars" aria-label="0 stars">☆☆☆</div>
       <div class="finish-icon" aria-hidden="true">🏆</div>
-      <p class="eyebrow">Amazing work!</p>
-      <h2>You found <strong><span id="finalScore">0</span>/10</strong> stars!</h2>
-      <p class="end-message" id="endMessage">You did a wonderful job!</p>
-      <div class="end-actions">
-        <button class="primary-button" id="playAgainButton" type="button">Play Again <span aria-hidden="true">↻</span></button>
-        <button class="secondary-button" id="endHomeButton" type="button">Home</button>
-      </div>
+      <p class="eyebrow" id="finishKicker">Level complete!</p>
+      <h2 id="finishTitle">Ready for your results?</h2>
+      <p class="end-message" id="endMessage">Keep exploring the world!</p>
+      <p class="result-details" id="resultDetails"></p>
+      <p class="achievement-heading" id="achievementHeading">Achievements</p>
+      <div class="achievement-list" id="achievementList"></div>
+      <div class="end-actions"><button class="primary-button" id="nextLevelButton" type="button" hidden>Next Level</button><button class="secondary-button" id="playAgainButton" type="button">Replay</button><button class="secondary-button" id="endHomeButton" type="button">Home</button></div>
     </section>
   </main>
 
-  <div class="feedback-pop" id="feedbackPop" hidden aria-live="assertive">
-    <div class="feedback-sticker" id="feedbackSticker" aria-hidden="true"></div>
-    <div class="feedback-message" id="feedbackMessage"></div>
-  </div>
+  <div class="feedback-pop" id="feedbackPop" hidden aria-live="assertive"><div class="feedback-sticker" id="feedbackSticker"></div><div class="feedback-message" id="feedbackMessage"></div></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
-
   <script src="script.js"></script>
 </body>
 </html>
